@@ -1,0 +1,596 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tarixiy davlatlar viktorinasi</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #10182e, #172d50, #263e65);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    padding: 35px;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 25px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 20px 60px #0005;
+    text-align: center;
+}
+
+h1 {
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.subtitle {
+    color: #b8c8df;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.start {
+    background: #32d6a0;
+    color: #102c28;
+    border: none;
+    padding: 16px 40px;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.start:hover {
+    transform: scale(1.06);
+    background: #62f0bd;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    color: #d8e7ff;
+    font-weight: bold;
+}
+
+.progress {
+    width: 100%;
+    height: 9px;
+    background: #ffffff20;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #32d6a0;
+    transition: width .4s;
+}
+
+.image-box {
+    width: 100%;
+    height: 290px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.image-error {
+    color: #333;
+    display: none;
+    padding: 20px;
+}
+
+.question {
+    font-size: 21px;
+    margin-bottom: 22px;
+}
+
+.answers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 13px;
+}
+
+.answer {
+    padding: 18px 12px;
+    border: 1px solid #ffffff30;
+    border-radius: 13px;
+    background: #ffffff12;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: .25s;
+}
+
+.answer:hover:not(:disabled) {
+    background: #ffffff30;
+    transform: translateY(-3px);
+}
+
+.answer:disabled {
+    cursor: default;
+}
+
+.correct {
+    background: #087e55 !important;
+    border-color: #36e6a7 !important;
+}
+
+.wrong {
+    background: #b83242 !important;
+    border-color: #ff6575 !important;
+}
+
+#message {
+    min-height: 35px;
+    margin-top: 22px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.next {
+    display: none;
+    margin-top: 15px;
+    padding: 15px 35px;
+    background: #32d6a0;
+    border: none;
+    border-radius: 12px;
+    color: #102c28;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.next:hover {
+    background: #62f0bd;
+}
+
+#quiz, #result {
+    display: none;
+}
+
+.result-icon {
+    font-size: 65px;
+    margin: 20px;
+}
+
+.final-score {
+    font-size: 45px;
+    color: #32d6a0;
+    margin: 20px;
+}
+
+.final-text {
+    color: #d5e3f8;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.restart {
+    margin-top: 25px;
+    padding: 16px 35px;
+    border: none;
+    border-radius: 12px;
+    background: #32d6a0;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+@media(max-width: 500px) {
+    .container {
+        padding: 20px;
+    }
+
+    .answers {
+        grid-template-columns: 1fr;
+    }
+
+    .image-box {
+        height: 210px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div id="startScreen">
+        <div style="font-size:55px;margin-bottom:15px">🏛️</div>
+
+        <h1>Tarixiy davlatlar</h1>
+
+        <p class="subtitle">
+            O'zbekiston tarixidagi davlatlar va ularning ramzlarini
+            qanchalik yaxshi bilasiz?
+            <br><br>
+            10 ta savol. Har bir to'g'ri javob uchun 1 ball!
+        </p>
+
+        <button class="start" onclick="startQuiz()">
+            Boshlash 🚀
+        </button>
+    </div>
+
+    <div id="quiz">
+
+        <div class="info">
+            <span id="number">Savol: 1/10</span>
+            <span id="score">Ball: 0</span>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar" id="bar"></div>
+        </div>
+
+        <div class="image-box">
+            <img id="flag" src="" alt="Tarixiy davlat tasviri">
+            <div class="image-error" id="imageError">
+                Rasm yuklanmadi.
+            </div>
+        </div>
+
+        <p class="question">
+            Ushbu rasm qaysi davlatga tegishli?
+        </p>
+
+        <div class="answers" id="answers"></div>
+
+        <div id="message"></div>
+
+        <button class="next" id="next" onclick="nextQuestion()">
+            Keyingi savol →
+        </button>
+
+    </div>
+
+    <div id="result">
+
+        <div class="result-icon">🏆</div>
+
+        <h1>Viktorina tugadi!</h1>
+
+        <div class="final-score" id="finalScore">0/10</div>
+
+        <p class="final-text" id="finalText"></p>
+
+        <button class="restart" onclick="startQuiz()">
+            Qayta boshlash 🔄
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+const flags = [
+
+    {
+        name: "Turk xoqonligi",
+        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Map_of_the_First_Turkic_Khaganate.png/960px-Map_of_the_First_Turkic_Khaganate.png"
+    },
+
+    {
+        name: "G'aznaviylar",
+        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c3/Seljuk_Empire_locator_map.svg/1920px-Seljuk_Empire_locator_map.svg.png"
+    },
+
+    {
+        name: "Somoniylar",
+        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/6c/Map_of_the_Samanid_amirate_at_the_death_of_Nasr_II%2C_943.svg/960px-Map_of_the_Samanid_amirate_at_the_death_of_Nasr_II%2C_943.svg.png"
+    },
+
+    {
+        name: "Qoraxoniylar",
+        image: "https://upload.wikimedia.org/wikipedia/commons/5/56/Kingdom_of_Kara-Khanids-_999-1212.png"
+    },
+
+    {
+        name: "Xorazmshohlar",
+        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bc/Map_of_the_Khwarazmian_Empire.png/960px-Map_of_the_Khwarazmian_Empire.png"
+    },
+
+    {
+        name: "Temuriylar",
+        image: "https://yastatic.net/naydex/yandex-search/I1gD7g084/f1ec32Plr/auypHVZZ4PIAAzb8HMwD55HnQ1D5lrcOz2wHIKRtw3oUzSOHINr8ILeW-2_vnTSjqqIPC6G5WdJQ-ndkkNSRD3ql5ARnVPSvfVYqhTn8H8OBmm8l2Zerf4dAW03EQM4HYOB3mpQybKl6DyLGHwT1RoPHbl78mTWDaWPc"
+    },
+
+    {
+        name: "Boburiylar",
+        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7c/Mughal_Empire_Flags.png/960px-Mughal_Empire_Flags.png"
+    },
+
+    {
+        name: "Buxoro amirligi",
+        image: "https://avatars.mds.yandex.net/i?id=aa2c43e907b58079ea596e33e738d87061ddb097-5876563-images-thumbs&n=13"
+    },
+
+    {
+        name: "O'zbekiston ASSR",
+        image: "https://avatars.mds.yandex.net/i?id=e8e1b75e70602ce8efe485afceac7cea21e29cf7-9181121-images-thumbs&n=13"
+    },
+
+    {
+        name: "Mustaqil O'zbekiston",
+        image: "https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg"
+    }
+
+];
+
+let questions = [];
+let current = 0;
+let score = 0;
+let answered = false;
+
+function shuffle(array) {
+    return [...array].sort(() => Math.random() - 0.5);
+}
+
+function startQuiz() {
+
+    questions = shuffle(flags);
+
+    current = 0;
+    score = 0;
+
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("result").style.display = "none";
+    document.getElementById("quiz").style.display = "block";
+
+    showQuestion();
+}
+
+function showQuestion() {
+
+    answered = false;
+
+    const q = questions[current];
+
+    document.getElementById("number").textContent =
+        `Savol: ${current + 1}/10`;
+
+    document.getElementById("score").textContent =
+        `Ball: ${score}`;
+
+    document.getElementById("bar").style.width =
+        (current / 10 * 100) + "%";
+
+    const img = document.getElementById("flag");
+    const error = document.getElementById("imageError");
+
+    img.style.display = "block";
+    error.style.display = "none";
+
+    img.onerror = function() {
+        img.style.display = "none";
+        error.style.display = "block";
+        error.textContent = "Rasm yuklanmadi. Internet yoki rasm havolasini tekshiring.";
+    };
+
+    img.src = q.image;
+
+    document.getElementById("message").textContent = "";
+    document.getElementById("next").style.display = "none";
+
+    const wrongAnswers = shuffle(
+        flags.filter(f => f.name !== q.name)
+    ).slice(0, 3).map(f => f.name);
+
+    const options = shuffle([
+        q.name,
+        ...wrongAnswers
+    ]);
+
+    const answerBox = document.getElementById("answers");
+
+    answerBox.innerHTML = "";
+
+    options.forEach(option => {
+
+        const button = document.createElement("button");
+
+        button.className = "answer";
+        button.textContent = option;
+
+        button.onclick = function() {
+            checkAnswer(button, option, q.name);
+        };
+
+        answerBox.appendChild(button);
+
+    });
+
+}
+
+function checkAnswer(button, selected, correct) {
+
+    if (answered) return;
+
+    answered = true;
+
+    const buttons = document.querySelectorAll(".answer");
+
+    buttons.forEach(b => {
+
+        b.disabled = true;
+
+        if (b.textContent === correct) {
+            b.classList.add("correct");
+        }
+
+    });
+
+    if (selected === correct) {
+
+        score++;
+
+        document.getElementById("message").textContent =
+            "🎉 Ajoyib! To'g'ri javob!";
+
+        button.classList.add("correct");
+
+        celebrate();
+
+    } else {
+
+        button.classList.add("wrong");
+
+        document.getElementById("message").textContent =
+            "❌ Noto'g'ri! To'g'ri javob: " + correct;
+
+    }
+
+    document.getElementById("score").textContent =
+        `Ball: ${score}`;
+
+    document.getElementById("next").style.display =
+        "inline-block";
+
+}
+
+function nextQuestion() {
+
+    current++;
+
+    if (current < 10) {
+
+        showQuestion();
+
+    } else {
+
+        finishQuiz();
+
+    }
+
+}
+
+function finishQuiz() {
+
+    document.getElementById("quiz").style.display = "none";
+
+    document.getElementById("result").style.display = "block";
+
+    document.getElementById("bar").style.width = "100%";
+
+    document.getElementById("finalScore").textContent =
+        `${score}/10`;
+
+    let message;
+
+    if (score === 10) {
+        message = "🔥 Mukammal natija! Siz tarixni juda yaxshi bilasiz!";
+    } else if (score >= 8) {
+        message = "🏆 Ajoyib natija! Siz haqiqiy tarix bilimdonisiz!";
+    } else if (score >= 6) {
+        message = "👏 Juda yaxshi! Yana biroz mashq qiling!";
+    } else if (score >= 4) {
+        message = "👍 Yomon emas! Yana urinib ko'ring!";
+    } else {
+        message = "💪 Xafa bo'lmang! Qayta urinib ko'ring!";
+    }
+
+    document.getElementById("finalText").textContent = message;
+
+    if (score >= 8) {
+        celebrate();
+    }
+
+}
+
+function celebrate() {
+
+    const emojis = ["🎉", "✨", "⭐", "🎊", "🏆"];
+
+    for (let i = 0; i < 45; i++) {
+
+        const particle = document.createElement("div");
+
+        particle.className = "particle";
+
+        particle.textContent =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        particle.style.left = Math.random() * 100 + "vw";
+        particle.style.top = "-40px";
+        particle.style.fontSize = (18 + Math.random() * 18) + "px";
+
+        document.body.appendChild(particle);
+
+        const x = (Math.random() - 0.5) * 350;
+        const y = 400 + Math.random() * 300;
+
+        const animation = particle.animate([
+
+            {
+                transform: "translate(0,0) rotate(0deg)",
+                opacity: 1
+            },
+
+            {
+                transform: `translate(${x}px,${y}px) rotate(720deg)`,
+                opacity: 0
+            }
+
+        ], {
+
+            duration: 1500 + Math.random() * 1200,
+            easing: "ease-out"
+
+        });
+
+        animation.onfinish = () => particle.remove();
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
