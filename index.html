@@ -1,11 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#080b12">
-<title>TARIX — Yo‘qolgan saltanatlar</title>
+<title>Davlatchilik tariximizdagi bayroqlar</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800;900&family=Orbitron:wght@500;700;900&display=swap');
 :root{--bg:#080b12;--panel:#101722;--panel2:#151f2d;--gold:#d9b56d;--gold2:#f5d99a;--blue:#70b9ff;--green:#4ce0a0;--red:#ff6579;--text:#f5f0e6;--muted:#9299a8;--border:rgba(217,181,109,.2)}
@@ -108,8 +107,6 @@ header{height:78px;padding:0 6%;display:flex;align-items:center;justify-content:
 .timer-circle strong{font-family:Orbitron,sans-serif;font-size:34px;color:var(--gold2)}
 .timer-circle.danger{border-color:var(--red);animation:timerPulse .5s infinite alternate}.timer-circle.danger strong{color:var(--red)}
 @keyframes timerPulse{to{transform:scale(1.05)}}
-.combo-display{text-align:center;color:var(--gold2);font-family:Orbitron,sans-serif;font-size:15px;margin-bottom:8px}
-.combo-subtitle{text-align:center;color:var(--muted);font-size:9px}
 .hint-btn{width:100%;padding:13px;background:rgba(112,185,255,.08);border:1px solid rgba(112,185,255,.35);color:var(--blue);font-weight:800;font-size:10px;letter-spacing:1px;transition:.2s}
 .hint-btn:hover:not(:disabled){background:rgba(112,185,255,.18)}.hint-btn:disabled{opacity:.35;cursor:not-allowed}
 .feedback{min-height:30px;padding:13px 0 0;font-size:12px;font-weight:800;line-height:1.6}
@@ -137,7 +134,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 6%;display:flex;j
 <body>
 <div id="effects"></div>
 <header>
-  <div class="brand"><div class="brand-icon"><span>T</span></div><div class="brand-name">TARIX<small>YO‘QOLGAN SALTANATLAR</small></div></div>
+  <div class="brand"><div class="brand-icon"><span>T</span></div><div class="brand-name">TARIX<small>DAVLATCHILIK TARIXIMIZDAGI BAYROQLAR</small></div></div>
   <nav class="nav">
     <button onclick="showScreen('home')">BOSH SAHIFA</button>
     <button onclick="showScreen('civilizations')">DAVLATLAR</button>
@@ -151,11 +148,11 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 6%;display:flex;j
   <div class="hero">
     <div class="hero-content">
       <div class="hero-kicker">ASRLAR QA’RIGA SAYOHAT</div>
-      <h1>YO‘QOLGAN <span>SALTANATLAR</span></h1>
-      <p class="hero-text">Vaqt darvozasidan o‘t. Buyuk imperiyalar tarixini kashf et. O‘z bilimingni sinab, tarix afsonasiga aylan!</p>
+      <h1>DAVLATCHILIK <span>TARIXIMIZDAGI BAYROQLAR</span></h1>
+      <p class="hero-text">Tariximizda mavjud bo‘lgan davlatlarning bayroqlarini tanib ol. Har bir tasvirga diqqat bilan qarab, bilimlaringni sinab ko‘r!</p>
       <div class="hero-actions">
         <button class="primary-btn" onclick="startGame()">SAYOHATNI BOSHLASH →</button>
-        <button class="secondary-btn" onclick="showScreen('civilizations')">DAVLATLARNI KO‘RISH</button>
+        <button class="secondary-btn" onclick="showScreen('civilizations')">BAYROQLARNI KO‘RISH</button>
       </div>
       <div class="hero-stats">
         <div class="hero-stat"><strong>12</strong><span>TARIXIY DAVLAT</span></div>
@@ -176,7 +173,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 6%;display:flex;j
   <div class="ornament">O‘TMISHNI KASHF ET</div>
   <div class="feature-strip">
     <div class="feature"><div class="feature-icon">⌛</div><div><h3>VAQT BILAN BELLASH</h3><p>Har bir savol uchun 15 soniya.</p></div></div>
-    <div class="feature"><div class="feature-icon">⚔</div><div><h3>O‘ZINGNI SINAB KO‘R</h3><p>12 ta tarixiy davlat haqida savollar.</p></div></div>
+    <div class="feature"><div class="feature-icon">⚔</div><div><h3>O‘ZINGNI SINAB KO‘R</h3><p>Tarixiy davlatlar bayroqlari bo‘yicha savollar.</p></div></div>
     <div class="feature"><div class="feature-icon">♛</div><div><h3>AFSONAGA AYLAN</h3><p>Ball yig‘ va yangi unvonlarni qo‘lga kirit.</p></div></div>
   </div>
 </main>
@@ -184,7 +181,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 6%;display:flex;j
 
 <section class="screen" id="civilizations">
 <main class="container civilizations">
-  <div class="eyebrow">QADIMGI DUNYO</div><h2 class="section-heading">TARIXIY DAVLATLAR</h2>
+  <div class="eyebrow">QADIMGI DUNYO</div><h2 class="section-heading">TARIXIY BAYROQLAR</h2>
   <p class="section-description">O‘tmishdagi buyuk davlatlar bilan tanish. Har bir kartada tarixiy tasvir mavjud.</p>
   <div class="civilization-grid" id="civilizationGrid"></div>
   <div style="text-align:center;margin-top:40px"><button class="primary-btn" onclick="startGame()">TARIXIY SINOVNI BOSHLASH →</button></div>
@@ -204,7 +201,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 6%;display:flex;j
   <div class="quiz-progress"><div id="progress"></div></div>
   <div class="quiz-layout">
     <div class="quiz-main">
-      <div class="question-label">DAVLATNI ANIQLANG</div>
+      <div class="question-label">BU QAYSI DAVLATNING TARIXIY BAYROG‘I?</div>
       <div class="question-image-wrap"><img id="questionImage" src="" alt="Tarixiy davlat tasviri"></div>
       <h2 class="question-text" id="questionText"></h2>
       <div class="answer-grid" id="answers"></div>
@@ -215,8 +212,6 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 6%;display:flex;j
       <div class="side-panel">
         <div class="side-title">QOLGAN VAQT</div>
         <div class="timer-circle" id="timerCircle"><strong id="timer">15</strong></div>
-        <div class="combo-display" id="combo">KETMA-KET × 0</div>
-        <div class="combo-subtitle">KETMA-KET TO‘G‘RI JAVOB</div>
       </div>
       <div class="side-panel">
         <div class="side-title">MAXSUS YORDAM</div>
@@ -240,13 +235,12 @@ footer{border-top:1px solid rgba(255,255,255,.07);padding:28px 6%;display:flex;j
   <div class="result-stats">
     <div class="result-stat"><strong id="correctCount">0</strong><span>TO‘G‘RI</span></div>
     <div class="result-stat"><strong id="wrongCount">0</strong><span>XATO</span></div>
-    <div class="result-stat"><strong id="bestCombo">0</strong><span>ENG UZUN KETMA-KETLIK</span></div>
   </div>
   <button class="primary-btn" onclick="startGame()">QAYTA O‘YNASH ↻</button>
   <button class="secondary-btn" style="margin:10px" onclick="showScreen('home')">BOSH SAHIFAGA</button>
 </div></main>
 </section>
-<footer><span>TARIX — YO‘QOLGAN SALTANATLAR</span><span>INTERFAOL TARIXIY SINOV</span></footer>
+<footer><span>DAVLATCHILIK TARIXIMIZDAGI BAYROQLAR</span><span>INTERFAOL TARIXIY SINOV</span></footer>
 
 <script>
 const states = [
@@ -263,41 +257,314 @@ const states = [
 {name:"O‘zbekiston ASSR",period:"1924–1930",image:"https://avatars.mds.yandex.net/i?id=e8e1b75e70602ce8efe485afceac7cea21e29cf7-9181121-images-thumbs&n=13"},
 {name:"Mustaqil O‘zbekiston",period:"1991–hozir",image:"https://upload.wikimedia.org/wikipedia/commons/8/84/Flag_of_Uzbekistan.svg"}
 ];
+
 const questions=[
-{question:"552-yilda tashkil topgan va Markaziy Osiyo tarixida katta iz qoldirgan davlat qaysi?",correct:"Turk xoqonligi",image:0},
-{question:"G‘azna shahrini markaz qilgan va Mahmud G‘aznaviy davrida yuksalgan sulola qaysi?",correct:"G‘aznaviylar",image:1},
-{question:"IX–X asrlarda Movarounnahrda hukmronlik qilgan sulola qaysi?",correct:"Somoniylar",image:2},
-{question:"Yettisuv va Sharqiy Turkiston hududlarida hukmronlik qilgan turkiy sulola qaysi?",correct:"Qoraxoniylar",image:3},
-{question:"XII–XIII asr boshlarida Markaziy Osiyoda qudratli davlat tuzgan sulola qaysi?",correct:"Xorazmshohlar",image:4},
-{question:"Amir Temur asos solgan davlat qaysi?",correct:"Temuriylar",image:5},
-{question:"Zahiriddin Muhammad Bobur asos solgan Hindistondagi sulola qaysi?",correct:"Boburiylar",image:6},
-{question:"Xorazm hududida mavjud bo‘lgan tarixiy xonlik qaysi?",correct:"Xiva xonligi",image:7},
-{question:"Farg‘ona vodiysida tashkil topgan xonlik qaysi?",correct:"Qo‘qon xonligi",image:8},
-{question:"Buxoro davlatining amir tomonidan boshqarilgan davri qaysi?",correct:"Buxoro amirligi",image:9},
-{question:"1924-yilda milliy-hududiy chegaralanish natijasida tashkil topgan O‘zbekiston sovet respublikasi qaysi?",correct:"O‘zbekiston ASSR",image:10},
-{question:"O‘zbekiston qachon davlat mustaqilligini e’lon qilgan?",correct:"Mustaqil O‘zbekiston",image:11}
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"Turk xoqonligi",image:0},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"G‘aznaviylar",image:1},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"Somoniylar",image:2},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"Qoraxoniylar",image:3},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"Xorazmshohlar",image:4},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"Temuriylar",image:5},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"Boburiylar",image:6},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"Xiva xonligi",image:7},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"Qo‘qon xonligi",image:8},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"Buxoro amirligi",image:9},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"O‘zbekiston ASSR",image:10},
+{question:"Bu qaysi davlatning tarixiy bayrog‘i?",correct:"Mustaqil O‘zbekiston",image:11}
 ];
-let currentQuestion=0,score=0,combo=0,maxCombo=0,correctAnswers=0,wrongAnswers=0,timer=15,timerInterval=null,answered=false,hintUsed=false,soundEnabled=true,gameQuestions=[],audioContext=null;
+
+let currentQuestion=0,score=0,correctAnswers=0,wrongAnswers=0,timer=15,timerInterval=null,answered=false,hintUsed=false,soundEnabled=true,gameQuestions=[],audioContext=null;
+
 function shuffle(array){const result=[...array];for(let i=result.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[result[i],result[j]]=[result[j],result[i]]}return result}
+
 function showScreen(id){clearInterval(timerInterval);document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");window.scrollTo({top:0,behavior:"smooth"})}
-function createCivilizations(){const grid=document.getElementById("civilizationGrid");states.forEach((state,index)=>{const card=document.createElement("div");card.className="civ-card";const number=document.createElement("div");number.className="civ-number";number.textContent=String(index+1).padStart(2,"0");const image=document.createElement("img");image.src=state.image;image.alt=state.name;image.loading="lazy";image.onerror=()=>{image.alt="Rasm yuklanmadi"};const info=document.createElement("div");info.className="civ-card-info";const period=document.createElement("small");period.textContent=state.period;const title=document.createElement("h3");title.textContent=state.name;info.append(period,title);card.append(number,image,info);grid.appendChild(card);card.addEventListener("mousemove",event=>{const rect=card.getBoundingClientRect(),x=(event.clientX-rect.left)/rect.width-.5,y=(event.clientY-rect.top)/rect.height-.5;card.style.transform=`translateY(-7px) rotateX(${-y*8}deg) rotateY(${x*8}deg)`});card.addEventListener("mouseleave",()=>card.style.transform="")})}
-function createOrbit(){const orbit=document.getElementById("orbit");states.forEach((state,index)=>{const card=document.createElement("div");card.className="orbit-card";card.style.setProperty("--a",`${index*30}deg`);card.style.setProperty("--delay",`${index*.17}s`);const img=document.createElement("img");img.src=state.image;img.alt=state.name;img.loading="lazy";card.appendChild(img);orbit.appendChild(card)})}
-function startGame(){clearInterval(timerInterval);currentQuestion=0;score=0;combo=0;maxCombo=0;correctAnswers=0;wrongAnswers=0;hintUsed=false;gameQuestions=shuffle(questions);document.getElementById("score").textContent="0";document.getElementById("hintBtn").disabled=false;showScreen("game");loadQuestion()}
-function loadQuestion(){clearInterval(timerInterval);answered=false;timer=15;const q=gameQuestions[currentQuestion];document.getElementById("questionNumber").textContent=`${currentQuestion+1}/12`;document.getElementById("score").textContent=score;document.getElementById("bestScore").textContent=localStorage.getItem("historyBest")||0;document.getElementById("progress").style.width=`${currentQuestion/gameQuestions.length*100}%`;document.getElementById("questionImage").src=states[q.image].image;document.getElementById("questionText").textContent=q.question;document.getElementById("feedback").textContent="";document.getElementById("nextBtn").classList.add("hidden");document.getElementById("timer").textContent=timer;document.getElementById("timerCircle").classList.remove("danger");document.getElementById("hintBtn").disabled=hintUsed;document.getElementById("combo").textContent=`KETMA-KET × ${combo}`;const options=shuffle([q.correct,...shuffle(states.filter(s=>s.name!==q.correct).map(s=>s.name)).slice(0,3)]);const box=document.getElementById("answers");box.innerHTML="";["A","B","C","D"].forEach((letter,index)=>{const button=document.createElement("button");button.className="answer";const key=document.createElement("span");key.className="answer-key";key.textContent=letter;const text=document.createElement("span");text.textContent=options[index];button.append(key,text);button.onclick=()=>checkAnswer(button,options[index]);box.appendChild(button)});startTimer()}
-function checkAnswer(button,selected){if(answered)return;answered=true;clearInterval(timerInterval);const q=gameQuestions[currentQuestion];const buttons=document.querySelectorAll(".answer");buttons.forEach(btn=>{btn.disabled=true;if(btn.lastElementChild.textContent===q.correct)btn.classList.add("correct")});if(selected===q.correct){correctAnswers++;combo++;maxCombo=Math.max(maxCombo,combo);let multiplier=1;if(combo>=5)multiplier=5;else if(combo>=3)multiplier=3;else if(combo>=2)multiplier=2;const timeBonus=Math.floor(timer/5),gained=100*multiplier+timeBonus*10;score+=gained;document.getElementById("score").textContent=score;document.getElementById("combo").textContent=`KETMA-KET × ${combo}`;document.getElementById("feedback").textContent=`✦ TO‘G‘RI! +${gained} BALL · KO‘PAYTIRGICH ×${multiplier}`;document.getElementById("feedback").style.color="#4ce0a0";playSound("correct");celebrate()}else{wrongAnswers++;combo=0;button.classList.add("wrong");document.getElementById("combo").textContent="KETMA-KET × 0";document.getElementById("feedback").textContent=`✕ NOTO‘G‘RI. TO‘G‘RI JAVOB: ${q.correct}`;document.getElementById("feedback").style.color="#ff6579";playSound("wrong");shakeScreen()}document.getElementById("nextBtn").classList.remove("hidden");document.getElementById("progress").style.width=`${(currentQuestion+1)/gameQuestions.length*100}%`}
-function startTimer(){clearInterval(timerInterval);timerInterval=setInterval(()=>{if(answered){clearInterval(timerInterval);return}timer--;document.getElementById("timer").textContent=timer;if(timer<=5)document.getElementById("timerCircle").classList.add("danger");if(timer<=0){clearInterval(timerInterval);timeUp()}},1000)}
-function timeUp(){if(answered)return;answered=true;wrongAnswers++;combo=0;const correct=gameQuestions[currentQuestion].correct;document.querySelectorAll(".answer").forEach(btn=>{btn.disabled=true;if(btn.lastElementChild.textContent===correct)btn.classList.add("correct")});document.getElementById("combo").textContent="KETMA-KET × 0";document.getElementById("feedback").textContent=`VAQT TUGADI! TO‘G‘RI JAVOB: ${correct}`;document.getElementById("feedback").style.color="#ff6579";document.getElementById("nextBtn").classList.remove("hidden");playSound("wrong")}
-function useHint(){if(hintUsed||answered)return;hintUsed=true;const correct=gameQuestions[currentQuestion].correct;const wrongButtons=[...document.querySelectorAll(".answer")].filter(btn=>btn.lastElementChild.textContent!==correct);shuffle(wrongButtons).slice(0,2).forEach(btn=>{btn.disabled=true;btn.classList.add("eliminated")});document.getElementById("hintBtn").disabled=true;document.getElementById("feedback").textContent="IKKITA NOTO‘G‘RI JAVOB OLIB TASHLANDI!";document.getElementById("feedback").style.color="#70b9ff";playSound("hint")}
-function nextQuestion(){clearInterval(timerInterval);currentQuestion++;if(currentQuestion>=gameQuestions.length)showResult();else loadQuestion()}
-function showResult(){clearInterval(timerInterval);showScreen("result");document.getElementById("finalScore").textContent=score;document.getElementById("correctCount").textContent=correctAnswers;document.getElementById("wrongCount").textContent=wrongAnswers;document.getElementById("bestCombo").textContent=maxCombo;const oldBest=Number(localStorage.getItem("historyBest")||0);if(score>oldBest)localStorage.setItem("historyBest",score);const title=document.getElementById("resultTitle"),icon=document.getElementById("resultIcon"),message=document.getElementById("resultMessage");if(correctAnswers===12){title.textContent="AFSONAVIY HUKMDOR";icon.textContent="♛";message.textContent="Mukammal natija! Sen barcha tarixiy sinovlardan muvaffaqiyatli o‘tding. Tarix seni eslab qoladi!";celebrate();setTimeout(celebrate,500)}else if(correctAnswers>=9){title.textContent="BUYUK SARKARDA";icon.textContent="⚔";message.textContent="Ajoyib natija! Tarixiy davlatlarni juda yaxshi taniysan."}else if(correctAnswers>=6){title.textContent="MOHIR TARIXCHI";icon.textContent="📜";message.textContent="Yaxshi natija! Bilimingni yanada oshirish uchun davom et."}else{title.textContent="YOSH IZLANUVCHI";icon.textContent="⌛";message.textContent="Bu faqat boshlanishi. Tarixiy sayohatingni davom ettir!"}document.getElementById("bestScore").textContent=localStorage.getItem("historyBest")||0;playSound("victory")}
-function celebrate(){const area=document.getElementById("effects"),colors=["#e8c77f","#fff1c6","#70b9ff","#4ce0a0","#ffffff"];for(let i=0;i<110;i++){const p=document.createElement("div");p.className="particle";p.style.left=`${50+(Math.random()-.5)*20}%`;p.style.top=`${40+(Math.random()-.5)*20}%`;p.style.background=colors[Math.floor(Math.random()*colors.length)];p.style.setProperty("--x",`${(Math.random()-.5)*750}px`);p.style.setProperty("--y",`${(Math.random()-.5)*750}px`);area.appendChild(p);setTimeout(()=>p.remove(),1600)}const flash=document.createElement("div");flash.className="flash";document.body.appendChild(flash);setTimeout(()=>flash.remove(),500)}
-function shakeScreen(){const main=document.querySelector("#game .quiz-main");main.animate([{transform:"translateX(0)"},{transform:"translateX(-6px)"},{transform:"translateX(6px)"},{transform:"translateX(0)"}],{duration:300})}
-function playSound(type){if(!soundEnabled)return;try{const AudioCtx=window.AudioContext||window.webkitAudioContext;if(!AudioCtx)return;if(!audioContext)audioContext=new AudioCtx();if(audioContext.state==="suspended")audioContext.resume();const sounds={correct:[440,660,880,1175],wrong:[220,160],hint:[500,700],victory:[440,550,660,880,1100]};(sounds[type]||[440]).forEach((frequency,index)=>{const oscillator=audioContext.createOscillator(),gain=audioContext.createGain(),start=audioContext.currentTime+index*.11;oscillator.type=type==="wrong"?"sawtooth":"sine";oscillator.frequency.setValueAtTime(frequency,start);gain.gain.setValueAtTime(.001,start);gain.gain.exponentialRampToValueAtTime(.12,start+.02);gain.gain.exponentialRampToValueAtTime(.001,start+.2);oscillator.connect(gain);gain.connect(audioContext.destination);oscillator.start(start);oscillator.stop(start+.22)})}catch(error){console.log("Ovoz ishlamadi")}}
-function toggleSound(){soundEnabled=!soundEnabled;document.getElementById("soundButton").textContent=soundEnabled?"♫ OVOZ: YOQILGAN":"♫ OVOZ: O‘CHIRILGAN";if(soundEnabled)playSound("hint")}
-const portalWrap=document.getElementById("portalWrap"),portal=document.getElementById("portal");
-portalWrap.addEventListener("mousemove",event=>{const rect=portalWrap.getBoundingClientRect(),x=(event.clientX-rect.left)/rect.width-.5,y=(event.clientY-rect.top)/rect.height-.5;portal.style.transform=`rotateY(${x*13}deg) rotateX(${-y*13}deg)`});
+
+function createCivilizations(){
+const grid=document.getElementById("civilizationGrid");
+states.forEach((state,index)=>{
+const card=document.createElement("div");
+card.className="civ-card";
+const number=document.createElement("div");
+number.className="civ-number";
+number.textContent=String(index+1).padStart(2,"0");
+const image=document.createElement("img");
+image.src=state.image;
+image.alt=state.name;
+image.loading="lazy";
+image.onerror=()=>{image.alt="Rasm yuklanmadi"};
+const info=document.createElement("div");
+info.className="civ-card-info";
+const period=document.createElement("small");
+period.textContent=state.period;
+const title=document.createElement("h3");
+title.textContent=state.name;
+info.append(period,title);
+card.append(number,image,info);
+grid.appendChild(card);
+card.addEventListener("mousemove",event=>{
+const rect=card.getBoundingClientRect();
+const x=(event.clientX-rect.left)/rect.width-.5;
+const y=(event.clientY-rect.top)/rect.height-.5;
+card.style.transform=`translateY(-7px) rotateX(${-y*8}deg) rotateY(${x*8}deg)`;
+});
+card.addEventListener("mouseleave",()=>card.style.transform="");
+});
+}
+
+function createOrbit(){
+const orbit=document.getElementById("orbit");
+states.forEach((state,index)=>{
+const card=document.createElement("div");
+card.className="orbit-card";
+card.style.setProperty("--a",`${index*30}deg`);
+card.style.setProperty("--delay",`${index*.17}s`);
+const img=document.createElement("img");
+img.src=state.image;
+img.alt=state.name;
+img.loading="lazy";
+card.appendChild(img);
+orbit.appendChild(card);
+});
+}
+
+function startGame(){
+clearInterval(timerInterval);
+currentQuestion=0;
+score=0;
+correctAnswers=0;
+wrongAnswers=0;
+hintUsed=false;
+gameQuestions=[...shuffle(questions.slice(0,-1)),questions[questions.length-1]];
+document.getElementById("score").textContent="0";
+document.getElementById("hintBtn").disabled=false;
+showScreen("game");
+loadQuestion();
+}
+
+function loadQuestion(){
+clearInterval(timerInterval);
+answered=false;
+timer=15;
+const q=gameQuestions[currentQuestion];
+document.getElementById("questionNumber").textContent=`${currentQuestion+1}/${gameQuestions.length}`;
+document.getElementById("score").textContent=score;
+document.getElementById("bestScore").textContent=localStorage.getItem("historyBest")||0;
+document.getElementById("progress").style.width=`${currentQuestion/gameQuestions.length*100}%`;
+document.getElementById("questionImage").src=states[q.image].image;
+document.getElementById("questionText").textContent=q.question;
+document.getElementById("feedback").textContent="";
+document.getElementById("nextBtn").classList.add("hidden");
+document.getElementById("timer").textContent=timer;
+document.getElementById("timerCircle").classList.remove("danger");
+document.getElementById("hintBtn").disabled=hintUsed;
+
+const options=shuffle([q.correct,...shuffle(states.filter(s=>s.name!==q.correct).map(s=>s.name)).slice(0,3)]);
+const box=document.getElementById("answers");
+box.innerHTML="";
+["A","B","C","D"].forEach((letter,index)=>{
+const button=document.createElement("button");
+button.className="answer";
+const key=document.createElement("span");
+key.className="answer-key";
+key.textContent=letter;
+const text=document.createElement("span");
+text.textContent=options[index];
+button.append(key,text);
+button.onclick=()=>checkAnswer(button,options[index]);
+box.appendChild(button);
+});
+startTimer();
+}
+
+function checkAnswer(button,selected){
+if(answered)return;
+answered=true;
+clearInterval(timerInterval);
+const q=gameQuestions[currentQuestion];
+const buttons=document.querySelectorAll(".answer");
+buttons.forEach(btn=>{
+btn.disabled=true;
+if(btn.lastElementChild.textContent===q.correct)btn.classList.add("correct");
+});
+if(selected===q.correct){
+correctAnswers++;
+const timeBonus=Math.floor(timer/5);
+const gained=100+timeBonus*10;
+score+=gained;
+document.getElementById("score").textContent=score;
+document.getElementById("feedback").textContent=`✦ TO‘G‘RI! +${gained} BALL`;
+document.getElementById("feedback").style.color="#4ce0a0";
+playSound("correct");
+celebrate();
+}else{
+wrongAnswers++;
+button.classList.add("wrong");
+document.getElementById("feedback").textContent=`✕ NOTO‘G‘RI. TO‘G‘RI JAVOB: ${q.correct}`;
+document.getElementById("feedback").style.color="#ff6579";
+playSound("wrong");
+shakeScreen();
+}
+document.getElementById("nextBtn").classList.remove("hidden");
+document.getElementById("progress").style.width=`${(currentQuestion+1)/gameQuestions.length*100}%`;
+}
+
+function startTimer(){
+clearInterval(timerInterval);
+timerInterval=setInterval(()=>{
+if(answered){clearInterval(timerInterval);return}
+timer--;
+document.getElementById("timer").textContent=timer;
+if(timer<=5)document.getElementById("timerCircle").classList.add("danger");
+if(timer<=0){clearInterval(timerInterval);timeUp()}
+},1000);
+}
+
+function timeUp(){
+if(answered)return;
+answered=true;
+wrongAnswers++;
+const correct=gameQuestions[currentQuestion].correct;
+document.querySelectorAll(".answer").forEach(btn=>{
+btn.disabled=true;
+if(btn.lastElementChild.textContent===correct)btn.classList.add("correct");
+});
+document.getElementById("feedback").textContent=`VAQT TUGADI! TO‘G‘RI JAVOB: ${correct}`;
+document.getElementById("feedback").style.color="#ff6579";
+document.getElementById("nextBtn").classList.remove("hidden");
+playSound("wrong");
+}
+
+function useHint(){
+if(hintUsed||answered)return;
+hintUsed=true;
+const correct=gameQuestions[currentQuestion].correct;
+const wrongButtons=[...document.querySelectorAll(".answer")].filter(btn=>btn.lastElementChild.textContent!==correct);
+shuffle(wrongButtons).slice(0,2).forEach(btn=>{
+btn.disabled=true;
+btn.classList.add("eliminated");
+});
+document.getElementById("hintBtn").disabled=true;
+document.getElementById("feedback").textContent="IKKITA NOTO‘G‘RI JAVOB OLIB TASHLANDI!";
+document.getElementById("feedback").style.color="#70b9ff";
+playSound("hint");
+}
+
+function nextQuestion(){
+clearInterval(timerInterval);
+currentQuestion++;
+if(currentQuestion>=gameQuestions.length)showResult();
+else loadQuestion();
+}
+
+function showResult(){
+clearInterval(timerInterval);
+showScreen("result");
+document.getElementById("finalScore").textContent=score;
+document.getElementById("correctCount").textContent=correctAnswers;
+document.getElementById("wrongCount").textContent=wrongAnswers;
+const oldBest=Number(localStorage.getItem("historyBest")||0);
+if(score>oldBest)localStorage.setItem("historyBest",score);
+const title=document.getElementById("resultTitle");
+const icon=document.getElementById("resultIcon");
+const message=document.getElementById("resultMessage");
+if(correctAnswers===gameQuestions.length){
+title.textContent="AFSONAVIY HUKMDOR";
+icon.textContent="♛";
+message.textContent="Mukammal natija! Sen barcha tarixiy sinovlardan muvaffaqiyatli o‘tding. Tarix seni eslab qoladi!";
+celebrate();
+setTimeout(celebrate,500);
+}else if(correctAnswers>=9){
+title.textContent="BUYUK SARKARDA";
+icon.textContent="⚔";
+message.textContent="Ajoyib natija! Tarixiy davlatlarni juda yaxshi taniysan.";
+}else if(correctAnswers>=6){
+title.textContent="MOHIR TARIXCHI";
+icon.textContent="📜";
+message.textContent="Yaxshi natija! Bilimingni yanada oshirish uchun davom et.";
+}else{
+title.textContent="YOSH IZLANUVCHI";
+icon.textContent="⌛";
+message.textContent="Bu faqat boshlanishi. Tarixiy sayohatingni davom ettir!";
+}
+document.getElementById("bestScore").textContent=localStorage.getItem("historyBest")||0;
+playSound("victory");
+}
+
+function celebrate(){
+const area=document.getElementById("effects");
+const colors=["#e8c77f","#fff1c6","#70b9ff","#4ce0a0","#ffffff"];
+for(let i=0;i<110;i++){
+const p=document.createElement("div");
+p.className="particle";
+p.style.left=`${50+(Math.random()-.5)*20}%`;
+p.style.top=`${40+(Math.random()-.5)*20}%`;
+p.style.background=colors[Math.floor(Math.random()*colors.length)];
+p.style.setProperty("--x",`${(Math.random()-.5)*750}px`);
+p.style.setProperty("--y",`${(Math.random()-.5)*750}px`);
+area.appendChild(p);
+setTimeout(()=>p.remove(),1600);
+}
+const flash=document.createElement("div");
+flash.className="flash";
+document.body.appendChild(flash);
+setTimeout(()=>flash.remove(),500);
+}
+
+function shakeScreen(){
+const main=document.querySelector("#game .quiz-main");
+main.animate([
+{transform:"translateX(0)"},
+{transform:"translateX(-6px)"},
+{transform:"translateX(6px)"},
+{transform:"translateX(0)"}
+],{duration:300});
+}
+
+function playSound(type){
+if(!soundEnabled)return;
+try{
+const AudioCtx=window.AudioContext||window.webkitAudioContext;
+if(!AudioCtx)return;
+if(!audioContext)audioContext=new AudioCtx();
+if(audioContext.state==="suspended")audioContext.resume();
+const sounds={correct:[440,660,880,1175],wrong:[220,160],hint:[500,700],victory:[440,550,660,880,1100]};
+(sounds[type]||[440]).forEach((frequency,index)=>{
+const oscillator=audioContext.createOscillator();
+const gain=audioContext.createGain();
+const start=audioContext.currentTime+index*.11;
+oscillator.type=type==="wrong"?"sawtooth":"sine";
+oscillator.frequency.setValueAtTime(frequency,start);
+gain.gain.setValueAtTime(.001,start);
+gain.gain.exponentialRampToValueAtTime(.12,start+.02);
+gain.gain.exponentialRampToValueAtTime(.001,start+.2);
+oscillator.connect(gain);
+gain.connect(audioContext.destination);
+oscillator.start(start);
+oscillator.stop(start+.22);
+});
+}catch(error){console.log("Ovoz ishlamadi")}
+}
+
+function toggleSound(){
+soundEnabled=!soundEnabled;
+document.getElementById("soundButton").textContent=soundEnabled?"♫ OVOZ: YOQILGAN":"♫ OVOZ: O‘CHIRILGAN";
+if(soundEnabled)playSound("hint");
+}
+
+const portalWrap=document.getElementById("portalWrap");
+const portal=document.getElementById("portal");
+
+portalWrap.addEventListener("mousemove",event=>{
+const rect=portalWrap.getBoundingClientRect();
+const x=(event.clientX-rect.left)/rect.width-.5;
+const y=(event.clientY-rect.top)/rect.height-.5;
+portal.style.transform=`rotateY(${x*13}deg) rotateX(${-y*13}deg)`;
+});
+
 portalWrap.addEventListener("mouseleave",()=>portal.style.transform="");
-createCivilizations();createOrbit();
+
+createCivilizations();
+createOrbit();
 </script>
 </body>
 </html>
